@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        #body {
+            max-width: 100%;
+        }
+        #flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #space-between {
+            justify-content: space-between;
+        }
+        #blocks {
+            border: 2px solid black;
+            margin: auto;
+            width: 250px;
+            horiz-align: center;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body id="body">
+<div>
+    <h1 class="display-5 fw-bold" align="center">Машинки</h1>
+    <a href="/cars/add"><button type="button" class="btn btn-primary btn-lg px-4 gap-3" style="background-color: #696969">Добавить</button></a>
+    <a href="/cars"><bucaron type="button" class="btn btn-outline-secondary btn-lg px-4">Обновить</bucaron></a>
+</div>
+<div class="container mt-5" id="flex">
+    <div th:each="element: ${car}" class="h-100 p-5 text-white bg-dark rounded-3 mt-4">
+        <div id="blocks">
+            <h3 th:text="${element.getId()}"></h3>
+            <p th:text="${element.getModel()}"/>
+            <p th:text="${element.getColor()}"/>
+            <p th:text="${element.getMaxSpeed()}"/>
+            <a th:href="'/cars/more/' + ${element.getId()}"><button class="btn btn-outline-light" type="button">Подробнее</button> </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
